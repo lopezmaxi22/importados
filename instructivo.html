@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instructivo — Importados LG</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fondo:#0b0c10;--superficie:#111318;--borde:rgba(255,255,255,.09);
+  --texto:#f2f3f7;--gris:rgba(242,243,247,.6);--acento:#7c6cf6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--fondo);color:var(--texto);
+  font-family:'Figtree',sans-serif;line-height:1.6;
+  padding:36px 18px 70px;
+}
+.wrap{max-width:680px;margin:0 auto}
+h1{
+  font-family:'Space Grotesk',sans-serif;font-size:26px;letter-spacing:.06em;
+}
+h1 span{color:var(--acento)}
+.intro{color:var(--gris);margin-top:8px;font-size:15px}
+.paso{
+  background:var(--superficie);border:1px solid var(--borde);
+  border-radius:16px;padding:20px 20px 22px;margin-top:18px;
+}
+.paso h2{
+  font-size:16px;font-weight:800;display:flex;align-items:center;gap:12px;
+}
+.num{
+  flex:none;width:28px;height:28px;border-radius:50%;
+  background:var(--acento);color:#0b0c10;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;
+}
+.paso p{color:var(--gris);font-size:14px;margin-top:10px}
+code{
+  background:rgba(124,108,246,.14);border:1px solid rgba(124,108,246,.3);
+  border-radius:6px;padding:2px 7px;font-size:13px;color:var(--texto);
+  font-family:Consolas,Menlo,monospace;
+}
+pre{
+  background:#0e0f14;border:1px solid var(--borde);border-radius:10px;
+  padding:14px;margin-top:12px;overflow-x:auto;
+  font-family:Consolas,Menlo,monospace;font-size:12.5px;color:var(--texto);
+  line-height:1.55;
+}
+.ojo{
+  border-left:3px solid var(--acento);padding:10px 14px;margin-top:12px;
+  background:rgba(124,108,246,.07);border-radius:0 10px 10px 0;
+  font-size:13.5px;color:var(--gris);
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>IMPORTADOS <span>LG</span> — Manual del catálogo</h1>
+  <p class="intro">Todo lo que necesitás saber para manejar tu tienda. Siempre se edita un solo archivo: <code>index.html</code>, en la parte de arriba que dice CONFIGURACIÓN.</p>
+
+  <div class="paso">
+    <h2><span class="num">1</span>Cambiar un precio</h2>
+    <p>Abrí <code>index.html</code>, buscá el producto por nombre y cambiá el número de <code>precio</code>. Sin puntos ni signo pesos:</p>
+    <pre>precio: 65000,   ← esto se muestra como $65.000</pre>
+    <p>Guardá el archivo y listo.</p>
+  </div>
+
+  <div class="paso">
+    <h2><span class="num">2</span>Marcar sin stock</h2>
+    <p>En el producto, cambiá <code>stock: true</code> por <code>stock: false</code>. La tarjeta se ve en gris con el cartel "Sin stock". Cuando vuelva, lo ponés en <code>true</code> de nuevo.</p>
+  </div>
+
+  <div class="paso">
+    <h2><span class="num">3</span>Agregar un producto</h2>
+    <p>Copiá un bloque completo de llave a llave <code>{ ... },</code> y pegalo antes del corchete <code>]</code> que cierra la lista. Después cambiá los datos:</p>
+    <pre>{
+  categoria: "Perfumes",
+  nombre: "Asad",
+  marca: "Lattafa",
+  precio: 60000,
+  detalle: "100 ml · Eau de Parfum",
+  etiqueta: "NUEVO",
+  descripcion: "Amaderado especiado con actitud.",
+  modelos: [],
+  foto: "img/asad.jpg",
+  stock: true
+},   ← ¡no te olvides la coma!</pre>
+    <div class="ojo">Si en <code>categoria</code> escribís una nueva (ej: "Zapatillas"), la pestaña aparece sola arriba. No hay que tocar nada más.</div>
+  </div>
+
+  <div class="paso">
+    <h2><span class="num">4</span>Fragancias desplegables</h2>
+    <p>Si un perfume tiene varias versiones (como Hawas), cargalas en <code>modelos</code>, una por línea entre comillas y separadas por coma:</p>
+    <pre>modelos: [
+  "Hawas Ice",
+  "Hawas Black",
+  "Hawas Fire"
+],</pre>
+    <p>El botón "Ver fragancias" aparece solo. Si no tiene versiones, dejá <code>modelos: []</code>.</p>
+  </div>
+
+  <div class="paso">
+    <h2><span class="num">5</span>Fotos</h2>
+    <p>Van en la carpeta <code>img/</code> con el mismo nombre que pusiste en <code>foto</code>. Nombres en minúsculas, sin espacios ni acentos. Lo ideal: fotos cuadradas de unos 800x800 px. En <code>img/LEEME.txt</code> está la lista completa de nombres que espera la página.</p>
+    <div class="ojo">Consejo de vendedor: sacale fotos a TUS frascos con buena luz. Genera mucha más confianza que las fotos de catálogo.</div>
+  </div>
+
+  <div class="paso">
+    <h2><span class="num">6</span>Cambiar el destacado</h2>
+    <p>El banner grande de arriba muestra el producto que digas en la config:</p>
+    <pre>DESTACADO: "Hawas"   ← poné el nombre EXACTO de otro producto
+DESTACADO: ""        ← así se saca el banner</pre>
+  </div>
+
+  <div class="paso">
+    <h2><span class="num">7</span>Probar antes de publicar</h2>
+    <p>Hacé doble clic en <code>index.html</code> y se abre en el navegador. Si después de un cambio la página aparece en blanco, casi seguro falta una coma o una comilla en el último producto que tocaste. Revisalo y volvé a guardar.</p>
+  </div>
+</div>
+</body>
+</html>

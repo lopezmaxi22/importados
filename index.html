@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMPORTADOS LG</title>
+<meta name="description" content="Perfumes árabes originales, camisetas y más. Pedí por WhatsApp.">
+<meta name="theme-color" content="#0b0c10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+/* ============================================================
+   ⚙️ CONFIGURACIÓN — EDITAR SOLO ESTA PARTE ⚙️
+   ============================================================ */
+
+const CONFIG = {
+  WHATSAPP: "5491155676022",
+  NOMBRE_TIENDA: "IMPORTADOS LG",
+  SUBTITULO: "Perfumes árabes originales · Camisetas · y más",
+  MENSAJE_WA: "Hola! Vi el catálogo de Importados LG y quiero hacer un pedido",
+  DESTACADO: "Hawas"        // nombre EXACTO del producto que aparece en el banner de arriba ("" = sin banner)
+};
+
+/* ============================================================
+   🛒 PRODUCTOS
+   ============================================================
+   ▸ CATEGORÍAS: "Perfumes" · "Camisetas" · "Varios"
+     Si escribís una nueva (ej: "Zapatillas"), la pestaña
+     se crea sola arriba.
+
+   ▸ CAMBIAR PRECIO: cambiá el número. Sin puntos: 65000 = $65.000
+   ▸ SIN STOCK: poné  stock: false
+   ▸ ETIQUETA: "TOP VENTAS" · "NUEVO" · "OFERTA" · "" (nada)
+   ▸ MODELOS: fragancias/versiones que se despliegan al tocar
+     "Ver fragancias". Agregá o borrá líneas de la lista.
+     Si no tiene versiones, dejá  modelos: []
+
+   ▸ AGREGAR PRODUCTO: copiá un bloque { ... },  pegalo antes
+     del ] final y cambiá los datos. ¡Ojo con la coma final!
+
+   ▸ FOTOS: carpeta img/ con el nombre que pongas en foto.
+   ============================================================ */
+
+const PRODUCTOS = [
+
+  /* ------------------- PERFUMES ------------------- */
+  {
+    categoria: "Perfumes",
+    nombre: "Hawas",
+    marca: "Rasasi",
+    precio: 65000,
+    detalle: "100 ml · Eau de Parfum",
+    etiqueta: "TOP VENTAS",
+    descripcion: "La línea acuática más famosa de la perfumería árabe. Fresco, potente, dura todo el día.",
+    modelos: [
+      "Hawas For Him (Classic)",
+      "Hawas Ice",
+      "Hawas Black",
+      "Hawas Fire",
+      "Hawas Elixir",
+      "Hawas Kobra",
+      "Hawas Malibu",
+      "Hawas Diva",
+      "Hawas Eclat",
+      "Hawas For Her",
+      "Hawas Tropical"
+    ],
+    foto: "img/hawas.jpg",
+    stock: true
+  },
+  {
+    categoria: "Perfumes",
+    nombre: "Odyssey",
+    marca: "Armaf",
+    precio: 65000,
+    detalle: "100 ml · Eau de Parfum",
+    etiqueta: "",
+    descripcion: "Línea premium de Armaf. Dulces, cítricos y elegantes según la versión.",
+    modelos: [
+      "Mandarin Sky",
+      "Mandarin Sky Elixir",
+      "Aqua",
+      "Candee",
+      "Homme",
+      "White Edition"
+    ],
+    foto: "img/odyssey.jpg",
+    stock: true
+  },
+  {
+    categoria: "Perfumes",
+    nombre: "Al Haramain",
+    marca: "Al Haramain",
+    precio: 60000,
+    detalle: "Eau de Parfum",
+    etiqueta: "",
+    descripcion: "Casa árabe de lujo. Ámbar, dulzura y presencia de perfume de nicho.",
+    modelos: [
+      "Amber Oud Gold Edition",
+      "Amber Oud Ruby Edition",
+      "L'Aventure",
+      "L'Aventure Blanche"
+    ],
+    foto: "img/alharamain.jpg",
+    stock: true
+  },
+  {
+    categoria: "Perfumes",
+    nombre: "Khamrah",
+    marca: "Lattafa",
+    precio: 60000,
+    detalle: "100 ml · Eau de Parfum",
+    etiqueta: "TOP VENTAS",
+    descripcion: "Canela, dátiles y vainilla. El favorito para la noche. Duración altísima.",
+    modelos: [],
+    foto: "img/khamrah.jpg",
+    stock: true
+  },
+  {
+    categoria: "Perfumes",
+    nombre: "His Confession",
+    marca: "Armaf",
+    precio: 65000,
+    detalle: "100 ml · Eau de Parfum",
+    etiqueta: "",
+    descripcion: "Vainilla cremosa y atalcada, dulce elegante. Adictivo de noche.",
+    modelos: [],
+    foto: "img/hisconfession.jpg",
+    stock: true
+  },
+  {
+    categoria: "Perfumes",
+    nombre: "Yara",
+    marca: "Lattafa",
+    precio: 60000,
+    detalle: "100 ml · Eau de Parfum",
+    etiqueta: "EL MÁS PEDIDO",
+    descripcion: "El femenino árabe más pedido. Cremoso, frutal y dulce. Enamora.",
+    modelos: [],
+    foto: "img/yara.jpg",
+    stock: true
+  },
+  {
+    categoria: "Perfumes",
+    nombre: "Art of Universe",
+    marca: "Lattafa",
+    precio: 65000,
+    detalle: "100 ml · Eau de Parfum",
+    etiqueta: "",
+    descripcion: "Oud intenso con especias y ámbar. Unisex, profundo, distinto.",
+    modelos: [],
+    foto: "img/artofuniverse.jpg",
+    stock: true
+  },
+  {
+    categoria: "Perfumes",
+    nombre: "The Kingdom",
+    marca: "Lattafa",
+    precio: 60000,
+    detalle: "100 ml · Eau de Parfum",
+    etiqueta: "",
+    descripcion: "Amaderado dulce masculino con presencia. Elegante y rendidor.",
+    modelos: [],
+    foto: "img/thekingdom.jpg",
+    stock: true
+  },
+  {
+    categoria: "Perfumes",
+    nombre: "9PM",
+    marca: "Afnan",
+    precio: 65000,
+    detalle: "100 ml · Eau de Parfum",
+    etiqueta: "REY DE LA NOCHE",
+    descripcion: "Lavanda, vainilla y ámbar dulce. Uno de los árabes más famosos del mundo.",
+    modelos: [],
+    foto: "img/9pm.jpg",
+    stock: true
+  },
+
+  /* ------------------- CAMISETAS -------------------
+     ⚠️ EJEMPLOS: editalos con productos reales o borralos. */
+  {
+    categoria: "Camisetas",
+    nombre: "Camiseta Argentina",
+    marca: "Fútbol",
+    precio: 35000,
+    detalle: "Consultá talles",
+    etiqueta: "NUEVO",
+    descripcion: "Ejemplo: editá este producto con las camisetas reales que vendas.",
+    modelos: [],
+    foto: "img/camiseta-argentina.jpg",
+    stock: true
+  },
+  {
+    categoria: "Camisetas",
+    nombre: "Camisetas de club",
+    marca: "Fútbol",
+    precio: 35000,
+    detalle: "Consultá equipos",
+    etiqueta: "",
+    descripcion: "Ejemplo: Boca, River, Real Madrid... poné acá lo que tengas.",
+    modelos: [],
+    foto: "img/camiseta-club.jpg",
+    stock: true
+  },
+
+  /* ------------------- VARIOS -------------------
+     ⚠️ EJEMPLOS: editalos o borralos. */
+  {
+    categoria: "Varios",
+    nombre: "Fundas de celular",
+    marca: "Accesorios",
+    precio: 15000,
+    detalle: "Consultá modelos",
+    etiqueta: "",
+    descripcion: "Ejemplo: editá este producto con las fundas que tengas.",
+    modelos: [],
+    foto: "img/fundas.jpg",
+    stock: true
+  }
+];
+/* ============================================================
+   FIN DE LA CONFIGURACIÓN — de acá para abajo no tocar
+   ============================================================ */
+</script>
+
+<style>
+:root{
+  --fondo:#0b0c10;
+  --superficie:#111318;
+  --panel:rgba(255,255,255,.035);
+  --borde:rgba(255,255,255,.08);
+  --borde-fuerte:rgba(255,255,255,.16);
+  --texto:#f2f3f7;
+  --gris:rgba(242,243,247,.55);
+  --gris-2:rgba(242,243,247,.38);
+  --acento:#7c6cf6;
+  --acento-suave:rgba(124,108,246,.14);
+  --wa:#25d366;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--fondo);
+  color:var(--texto);
+  font-family:'Figtree',sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  -webkit-tap-highlight-color:transparent;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;
+  background:radial-gradient(ellipse 85% 42% at 50% -14%, rgba(124,108,246,.16), transparent 62%);
+}
+
+/* ---------- barra de anuncio ---------- */
+.anuncio{
+  background:var(--acento);
+  color:#0b0c10;
+  text-align:center;
+  font-size:11.5px;font-weight:800;letter-spacing:.18em;
+  text-transform:uppercase;
+  padding:8px 14px;
+}
+
+/* ---------- navbar sticky ---------- */
+nav{
+  position:sticky;top:0;z-index:40;
+  background:rgba(11,12,16,.86);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--borde);
+}
+.nav-inner{max-width:1080px;margin:0 auto;padding:14px 16px 12px}
+.marca-nav{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:19px;font-weight:700;letter-spacing:.14em;
+  margin-bottom:12px;
+}
+.marca-nav .lg{color:var(--acento)}
+.fila-filtros{display:flex;flex-direction:column;gap:10px}
+.buscador{position:relative}
+.buscador svg{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  width:16px;height:16px;stroke:var(--gris);fill:none;stroke-width:2;
+  pointer-events:none;
+}
+.buscador input{
+  width:100%;
+  background:var(--panel);
+  border:1px solid var(--borde);
+  border-radius:11px;
+  color:var(--texto);
+  font-family:'Figtree',sans-serif;
+  font-size:15px;font-weight:500;
+  padding:11px 16px 11px 40px;
+  outline:none;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.buscador input::placeholder{color:var(--gris-2)}
+.buscador input:focus{
+  border-color:var(--acento);
+  box-shadow:0 0 0 3px var(--acento-suave);
+}
+.chips{
+  display:flex;gap:8px;overflow-x:auto;
+  scrollbar-width:none;
+}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  flex:none;border:1px solid var(--borde);
+  background:transparent;
+  color:var(--gris);font-family:'Figtree',sans-serif;
+  font-weight:700;font-size:13px;letter-spacing:.04em;
+  padding:8px 17px;border-radius:999px;cursor:pointer;
+  transition:color .2s ease, border-color .2s ease, background .2s ease, transform .15s ease;
+  white-space:nowrap;
+}
+.chip:active{transform:scale(.95)}
+.chip.activo{
+  background:var(--texto);
+  border-color:var(--texto);
+  color:var(--fondo);
+}
+
+/* ---------- destacado ---------- */
+main{max-width:1080px;margin:0 auto;padding:20px 14px 130px;min-height:40vh}
+.hero{
+  display:flex;align-items:stretch;gap:0;
+  background:linear-gradient(115deg, var(--superficie), rgba(124,108,246,.10));
+  border:1px solid var(--borde);
+  border-radius:20px;overflow:hidden;
+  margin-bottom:10px;
+  animation:aparecer .6s ease both;
+}
+.hero-info{flex:1.2;padding:24px 22px;display:flex;flex-direction:column;justify-content:center}
+.hero-eyebrow{
+  font-size:10.5px;font-weight:800;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--acento);
+}
+.hero-nombre{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(26px,6.5vw,40px);font-weight:700;letter-spacing:.01em;
+  margin-top:6px;line-height:1.1;
+}
+.hero-desc{font-size:13.5px;color:var(--gris);margin-top:8px;max-width:420px}
+.hero-precio{
+  font-size:22px;font-weight:800;margin-top:14px;
+}
+.hero-precio small{font-size:12px;font-weight:500;color:var(--gris);margin-left:8px}
+.hero-foto{
+  flex:1;min-height:190px;position:relative;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(124,108,246,.22), transparent 70%),
+    linear-gradient(165deg,#181a22,#0e0f14);
+}
+.hero-foto img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+}
+.hero-foto .placeholder .letra{font-size:74px}
+
+/* ---------- secciones ---------- */
+.seccion-titulo{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:14px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;
+  margin:30px 4px 14px;display:flex;align-items:center;gap:12px;
+}
+.seccion-titulo .cant{
+  font-family:'Figtree',sans-serif;font-size:11.5px;font-weight:700;
+  color:var(--gris);border:1px solid var(--borde);
+  padding:2px 10px;border-radius:999px;letter-spacing:0;
+}
+.seccion-titulo::after{
+  content:"";flex:1;height:1px;
+  background:linear-gradient(90deg,var(--borde),transparent);
+}
+.grilla{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+@media (min-width:640px){.grilla{grid-template-columns:repeat(3,1fr);gap:18px}}
+@media (min-width:960px){.grilla{grid-template-columns:repeat(4,1fr);gap:20px}}
+.vacio{text-align:center;color:var(--gris);padding:60px 20px;font-size:15px}
+
+/* ---------- tarjeta ---------- */
+.card{
+  background:var(--superficie);
+  border:1px solid var(--borde);
+  border-radius:16px;overflow:hidden;
+  display:flex;flex-direction:column;
+  position:relative;
+  opacity:0;transform:translateY(18px);
+  transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.card.visible{animation:aparecer .5s ease both}
+@keyframes aparecer{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:var(--borde-fuerte);
+  box-shadow:0 20px 44px -20px rgba(0,0,0,.9);
+}
+.foto{
+  aspect-ratio:1/1;position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 40% 25%, rgba(124,108,246,.14), transparent 70%),
+    linear-gradient(165deg,#181a22,#0e0f14);
+}
+.foto img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .45s ease;
+}
+.card:hover .foto img{transform:scale(1.05)}
+.placeholder{
+  position:absolute;inset:0;display:flex;
+  align-items:center;justify-content:center;
+}
+.placeholder .letra{
+  font-family:'Space Grotesk',sans-serif;font-size:54px;font-weight:700;
+  color:var(--acento);opacity:.9;line-height:1;
+}
+.etiqueta{
+  position:absolute;top:10px;left:10px;z-index:2;
+  background:rgba(11,12,16,.85);
+  backdrop-filter:blur(6px);
+  border:1px solid var(--borde-fuerte);
+  color:var(--texto);font-weight:800;font-size:9.5px;letter-spacing:.16em;
+  padding:5px 11px;border-radius:999px;
+}
+.sin-stock .foto{filter:grayscale(1) brightness(.5)}
+.badge-stock{
+  position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:2;
+  background:rgba(11,12,16,.92);border:1px solid var(--borde-fuerte);
+  color:var(--texto);font-size:10px;letter-spacing:.14em;
+  padding:4px 12px;border-radius:999px;text-transform:uppercase;white-space:nowrap;
+}
+
+.info{padding:13px 14px 15px;display:flex;flex-direction:column;flex:1}
+.marca{
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gris);font-weight:700;
+}
+.nombre{
+  font-size:16.5px;font-weight:800;line-height:1.2;
+  margin-top:3px;color:var(--texto);
+}
+.desc{
+  font-size:12.5px;color:var(--gris);margin-top:6px;flex:1;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.pie{
+  margin-top:12px;padding-top:11px;
+  border-top:1px solid var(--borde);
+  display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap;
+}
+.precio{font-size:18px;font-weight:800;color:var(--texto)}
+.detalle{font-size:10.5px;color:var(--gris-2)}
+
+/* ---------- desplegable de modelos ---------- */
+.btn-modelos{
+  margin-top:11px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  width:100%;
+  background:transparent;
+  border:1px solid var(--borde-fuerte);
+  color:var(--texto);
+  font-family:'Figtree',sans-serif;
+  font-weight:700;font-size:12.5px;
+  padding:9px 13px;border-radius:10px;cursor:pointer;
+  transition:background .2s ease, border-color .2s ease;
+}
+.btn-modelos:hover{background:var(--acento-suave);border-color:var(--acento)}
+.btn-modelos:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+.btn-modelos .flecha{
+  width:8px;height:8px;flex:none;
+  border-right:2px solid var(--gris);
+  border-bottom:2px solid var(--gris);
+  transform:rotate(45deg) translateY(-2px);
+  transition:transform .3s ease;
+}
+.btn-modelos[aria-expanded="true"] .flecha{transform:rotate(225deg) translateY(-1px)}
+.panel-modelos{
+  max-height:0;overflow:hidden;
+  transition:max-height .35s ease, margin .35s ease;
+}
+.panel-modelos.abierto{max-height:520px;margin-top:10px}
+.lista-modelos{
+  border:1px solid var(--borde);
+  border-radius:10px;overflow:hidden;
+}
+.modelo{
+  padding:8px 12px;
+  font-size:12.5px;font-weight:600;color:var(--texto);
+}
+.modelo + .modelo{border-top:1px solid var(--borde)}
+
+/* ---------- botón único de WhatsApp ---------- */
+.wa-flotante{
+  position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:50;
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--wa);
+  color:#07301d;text-decoration:none;
+  font-weight:800;font-size:15px;
+  padding:14px 26px;border-radius:999px;
+  box-shadow:0 12px 32px -8px rgba(37,211,102,.7);
+  transition:transform .18s ease, box-shadow .18s ease;
+  white-space:nowrap;
+}
+.wa-flotante:hover{
+  transform:translateX(-50%) scale(1.05);
+  box-shadow:0 14px 38px -6px rgba(37,211,102,.85);
+}
+.wa-flotante:active{transform:translateX(-50%) scale(.96)}
+.wa-flotante svg{width:21px;height:21px;fill:#07301d;flex:none}
+
+footer{
+  border-top:1px solid var(--borde);
+  padding:30px 20px 116px;
+  text-align:center;
+}
+.footer-marca{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:15px;font-weight:700;letter-spacing:.14em;
+}
+.footer-marca .lg{color:var(--acento)}
+.footer-sub{color:var(--gris-2);font-size:12px;margin-top:6px;letter-spacing:.04em}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+  .card,.hero{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="anuncio">Productos 100% originales · Pedidos por WhatsApp</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="marca-nav">IMPORTADOS <span class="lg">LG</span></div>
+    <div class="fila-filtros">
+      <div class="buscador">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+        <input type="search" id="buscar" placeholder="Buscar perfume, marca, producto..." autocomplete="off" aria-label="Buscar en el catálogo">
+      </div>
+      <div class="chips" id="chips"></div>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div id="hero"></div>
+  <div id="contenido"></div>
+</main>
+
+<footer>
+  <div class="footer-marca">IMPORTADOS <span class="lg">LG</span></div>
+  <div class="footer-sub" id="footer-sub"></div>
+</footer>
+
+<a class="wa-flotante" id="wa-general" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3.2-.5s0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg>
+  Pedir por WhatsApp
+</a>
+
+<script>
+/* ---------- render (no tocar) ---------- */
+const fmt = n => "$" + n.toLocaleString("es-AR");
+
+document.getElementById("footer-sub").textContent = CONFIG.SUBTITULO;
+document.getElementById("wa-general").href =
+  "https://wa.me/" + CONFIG.WHATSAPP + "?text=" + encodeURIComponent(CONFIG.MENSAJE_WA);
+document.title = CONFIG.NOMBRE_TIENDA + " — Catálogo";
+
+const categorias = [...new Set(PRODUCTOS.map(p => p.categoria))];
+let filtroActual = "Todo";
+let textoBusqueda = "";
+
+/* chips de categorías (texto plano, sin íconos) */
+const chips = document.getElementById("chips");
+["Todo", ...categorias].forEach(cat => {
+  const b = document.createElement("button");
+  b.className = "chip" + (cat === "Todo" ? " activo" : "");
+  b.textContent = cat;
+  b.onclick = () => {
+    filtroActual = cat;
+    document.querySelectorAll(".chip").forEach(c => c.classList.remove("activo"));
+    b.classList.add("activo");
+    render();
+  };
+  chips.appendChild(b);
+});
+
+/* buscador */
+document.getElementById("buscar").addEventListener("input", e => {
+  textoBusqueda = e.target.value.trim().toLowerCase();
+  render();
+});
+
+const contenido = document.getElementById("contenido");
+const heroCont = document.getElementById("hero");
+
+function coincide(p){
+  if (!textoBusqueda) return true;
+  const pajar = (p.nombre + " " + p.marca + " " + p.descripcion + " " + (p.modelos || []).join(" ")).toLowerCase();
+  return pajar.includes(textoBusqueda);
+}
+
+/* banner destacado */
+function renderHero(){
+  heroCont.innerHTML = "";
+  if (!CONFIG.DESTACADO || textoBusqueda || filtroActual !== "Todo") return;
+  const p = PRODUCTOS.find(x => x.nombre === CONFIG.DESTACADO && x.stock);
+  if (!p) return;
+  const inicial = p.nombre.trim().charAt(0).toUpperCase();
+  heroCont.innerHTML = `
+  <section class="hero" aria-label="Producto destacado">
+    <div class="hero-info">
+      <div class="hero-eyebrow">Destacado</div>
+      <h2 class="hero-nombre">${p.nombre}</h2>
+      <p class="hero-desc">${p.descripcion}</p>
+      <div class="hero-precio">${fmt(p.precio)}<small>${p.detalle || ""}</small></div>
+    </div>
+    <div class="hero-foto">
+      <img src="${p.foto}" alt="${p.nombre} — ${p.marca}"
+           onerror="this.insertAdjacentHTML('afterend', placeholderDe('${inicial}')); this.remove();">
+    </div>
+  </section>`;
+}
+
+function tarjeta(p){
+  const inicial = p.nombre.trim().charAt(0).toUpperCase();
+  const tieneModelos = p.modelos && p.modelos.length > 0;
+  return `
+  <article class="card${p.stock ? "" : " sin-stock"}">
+    <div class="foto">
+      ${p.etiqueta ? `<span class="etiqueta">${p.etiqueta}</span>` : ""}
+      ${p.stock ? "" : `<span class="badge-stock">Sin stock</span>`}
+      <img src="${p.foto}" alt="${p.nombre} — ${p.marca}" loading="lazy"
+           onerror="this.insertAdjacentHTML('afterend', placeholderDe('${inicial}')); this.remove();">
+    </div>
+    <div class="info">
+      <div class="marca">${p.marca}</div>
+      <h3 class="nombre">${p.nombre}</h3>
+      <p class="desc">${p.descripcion}</p>
+      <div class="pie">
+        <span class="precio">${fmt(p.precio)}</span>
+        ${p.detalle ? `<span class="detalle">${p.detalle}</span>` : ""}
+      </div>
+      ${tieneModelos ? `
+        <button class="btn-modelos" aria-expanded="false" onclick="toggleModelos(this)">
+          <span>Ver fragancias (${p.modelos.length})</span>
+          <span class="flecha" aria-hidden="true"></span>
+        </button>
+        <div class="panel-modelos">
+          <div class="lista-modelos">
+            ${p.modelos.map(m => `<div class="modelo">${m}</div>`).join("")}
+          </div>
+        </div>` : ""}
+    </div>
+  </article>`;
+}
+
+function render(){
+  renderHero();
+  contenido.innerHTML = "";
+  const cats = filtroActual === "Todo" ? categorias : [filtroActual];
+  let hayAlgo = false;
+
+  cats.forEach(cat => {
+    const productos = PRODUCTOS.filter(p => p.categoria === cat && coincide(p));
+    if (!productos.length) return;
+    hayAlgo = true;
+    const sec = document.createElement("section");
+    sec.innerHTML = `
+      <h2 class="seccion-titulo">${cat}<span class="cant">${productos.length}</span></h2>
+      <div class="grilla">${productos.map(tarjeta).join("")}</div>`;
+    contenido.appendChild(sec);
+  });
+
+  if (!hayAlgo) {
+    contenido.innerHTML = `<p class="vacio">No encontramos nada con esa búsqueda.<br>Probá con otra palabra o escribinos por WhatsApp.</p>`;
+  }
+  observarTarjetas();
+}
+
+function toggleModelos(btn){
+  const abierto = btn.getAttribute("aria-expanded") === "true";
+  btn.setAttribute("aria-expanded", String(!abierto));
+  btn.nextElementSibling.classList.toggle("abierto", !abierto);
+}
+
+function placeholderDe(letra){
+  return `<div class="placeholder"><div class="letra">${letra}</div></div>`;
+}
+
+function observarTarjetas(){
+  const obs = new IntersectionObserver(entradas => {
+    entradas.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.animationDelay = (i % 4) * 0.07 + "s";
+        e.target.classList.add("visible");
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".card").forEach(c => obs.observe(c));
+}
+
+render();
+</script>
+</body>
+</html>
