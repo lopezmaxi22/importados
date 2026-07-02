@@ -1,0 +1,33 @@
+CARPETA DE FOTOS — IMPORTADOS LG
+=================================
+
+Guardá acá las fotos de los productos con EXACTAMENTE estos nombres
+(minúsculas, sin espacios, sin ñ ni acentos):
+
+PERFUMES:
+  hawas.jpg
+  odyssey.jpg
+  alharamain.jpg
+  khamrah.jpg
+  hisconfession.jpg
+  yara.jpg
+  artofuniverse.jpg
+  thekingdom.jpg
+  9pm.jpg
+
+CAMISETAS (ejemplos, renombrá según tus productos):
+  camiseta-argentina.jpg
+  camiseta-club.jpg
+
+VARIOS:
+  fundas.jpg
+
+CONSEJOS:
+- Formato cuadrado (1:1) es el ideal. Si no, la foto se recorta
+  centrada automáticamente.
+- Tamaño recomendado: 800x800 px aprox. No subas fotos de 10 MB
+  del celu sin achicar, que la página carga lenta.
+- Si agregás un producto nuevo en el index.html con
+  foto: "img/loquesea.jpg", guardá acá la foto con ese mismo nombre.
+- Mientras una foto no exista, la página muestra una tarjeta
+  con la inicial del producto (no se rompe nada).
