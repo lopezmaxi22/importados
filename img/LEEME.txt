@@ -1,33 +1,62 @@
-CARPETA DE FOTOS — IMPORTADOS LG
-=================================
+CARPETA DE FOTOS  -  LP IMPORTADOS
+====================================
 
-Guardá acá las fotos de los productos con EXACTAMENTE estos nombres
-(minúsculas, sin espacios, sin ñ ni acentos):
+NOVEDAD: ya NO importa el formato de la foto.
+Podés subir la imagen en .webp, .jpg, .jpeg o .png
+El sitio la encuentra igual. NO tenés que convertir nada.
 
-PERFUMES:
+Lo UNICO que importa es el NOMBRE (todo minuscula, sin
+acentos ni espacios). La extension podes dejarla como venga.
+
+--------------------------------------------------
+NOMBRES (18 fotos, una por producto):
+
+PERFUMES ARABES:
+  hawas          (.webp / .jpg / .jpeg / .png, la que tengas)
+  asad
+  odyssey
+  alharamain
+  khamrah
+  hisconfession
+  yara
+  artofuniverse
+  thekingdom
+  9pm
+
+PERFUMES ORIGINALES:
+  ch
+  onemillion
+  olympea
+  purexs
+  beyonce
+  nina
+  invictus
+
+INDUMENTARIA:
+  camiseta-argentina
+
+--------------------------------------------------
+EJEMPLOS de nombres validos (cualquiera anda):
   hawas.jpg
-  odyssey.jpg
-  alharamain.jpg
-  khamrah.jpg
-  hisconfession.jpg
-  yara.jpg
-  artofuniverse.jpg
-  thekingdom.jpg
-  9pm.jpg
+  hawas.png
+  hawas.webp
+  9pm.jpeg
+  camiseta-argentina.png
 
-CAMISETAS (ejemplos, renombrá según tus productos):
-  camiseta-argentina.jpg
-  camiseta-club.jpg
+NO validos (por el nombre, no el formato):
+  Hawas.jpg      (mayuscula)
+  9PM.png        (mayuscula)
+  camiseta argentina.jpg   (espacio)
+  yara con acento
 
-VARIOS:
-  fundas.jpg
-
-CONSEJOS:
-- Formato cuadrado (1:1) es el ideal. Si no, la foto se recorta
-  centrada automáticamente.
-- Tamaño recomendado: 800x800 px aprox. No subas fotos de 10 MB
-  del celu sin achicar, que la página carga lenta.
-- Si agregás un producto nuevo en el index.html con
-  foto: "img/loquesea.jpg", guardá acá la foto con ese mismo nombre.
-- Mientras una foto no exista, la página muestra una tarjeta
-  con la inicial del producto (no se rompe nada).
+--------------------------------------------------
+IMPORTANTE:
+- Estas mismas fotos se usan en el BANNER de arriba,
+  en el CARRUSEL que desfila, y en las TARJETAS.
+  Es UNA foto por producto, no hay fotos aparte para
+  el carrusel.
+- Ideal: cuadradas y con fondo blanco (quedan mas
+  prolijas), pero cualquier foto entra sin cortarse.
+- Mientras una foto no este, se ve la inicial del
+  producto en su lugar (no se rompe nada).
+--------------------------------------------------
